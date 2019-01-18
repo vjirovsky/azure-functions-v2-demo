@@ -7,5 +7,6 @@ RUN cd /src/dotnet-function-app && \
 
 FROM vjirovsky/vaseks-af-host:dotnet-2.0
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
+ENV AzureWebJobsStorage="---YOUR-STORAGE_CONNECTION_STRING---"
 
 COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]

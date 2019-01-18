@@ -15,9 +15,6 @@ namespace DotnetTalks.Function
         [FunctionName("HelloFunction")]
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "hello/")] HttpRequest req,
-            ILogger log)
-        {
-            return new OkObjectResult($"Hello world!");
-        }
+            ILogger log) => new OkObjectResult($"Hello world!");
     }
 }
