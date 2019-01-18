@@ -13,7 +13,10 @@ namespace Dotnettalks.Function
         [FunctionName("ServiceBusOutputBindingFunction")]
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "create-order/")] HttpRequest req,
-            [ServiceBus("items-to-process", Connection = "dotnettalks-servicebus-playground_SERVICEBUS", EntityType = EntityType.Queue)] ICollector<string> outputSbQueue,
+            [ServiceBus("items-to-process",
+             Connection = "dotnettalks-servicebus-playground_SERVICEBUS", 
+             EntityType = EntityType.Queue)] 
+             ICollector<string> outputSbQueue,
             ILogger log)
         {
             string item = req.Query["item"];

@@ -4,9 +4,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Dotnettalks.Function
 {
-    public static class ServiceBusInputBindingFunction
+    public static class ServiceBusTriggerFunction
     {
-        [FunctionName("ServiceBusInputBindingFunction")]
+        [FunctionName("ServiceBusTriggerFunction")]
         public static void Run([ServiceBusTrigger("items-to-process", Connection = "dotnettalks-servicebus-playground_SERVICEBUS")]string myQueueItem, ILogger log)
         {
             log.LogInformation($"Process item from queue: '{myQueueItem}'");
