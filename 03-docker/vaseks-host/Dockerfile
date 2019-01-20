@@ -1,11 +1,11 @@
-FROM microsoft/dotnet:2.1-sdk AS installer-env
+FROM microsoft/dotnet:2.2-sdk AS installer-env
 
 COPY . /src/dotnet-function-app
 RUN cd /src/dotnet-function-app && \
     mkdir -p /home/site/wwwroot && \
     dotnet publish *.csproj --output /home/site/wwwroot
 
-FROM vjirovsky/vaseks-af-host:dotnet-2.2.0
+FROM vjirovsky/vaseks-af-host:dotnet-2.2
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 ENV AzureWebJobsStorage="---YOUR-STORAGE_CONNECTION_STRING---"
 
